@@ -24,3 +24,4 @@ def same(a, b):
   print "values: "
   for i in keys:
     print "%d:\t%d\t%s"%(pretty(a.values.get(i)), pretty(b.values.get(i)))
+  sys.exit(1)
