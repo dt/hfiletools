@@ -1,7 +1,7 @@
 # hfiletools
 Tools for debugging/interacting with Foursquare's `HFile` KV service, via thrift-over-http RPC.
 
-Can be used to talk to [dt/thile](/dt/thile).
+Can be used to talk to [dt/thile](http://github.com/dt/thile).
 
 ## keys.py
 Takes the hex-encoded payload of an RPC request and dumps info about which method it is calling and the keys requested.
