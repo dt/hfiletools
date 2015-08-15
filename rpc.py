@@ -1,6 +1,7 @@
 import binascii
 import hashlib
 import sys
+import string
 import struct
 
 import requests
@@ -20,10 +21,13 @@ def req_data(method, req):
 
 def send_req(url, method, req):
   r = requests.post(url, data=req)
-  print r
-  print hashlib.md5(r.content).hexdigest()
-  print binascii.hexlify(r.content)
-  recv(method, r.content)
+  print ""
+  print "Status:\t\t" +str(r.status_code)
+  print "Hash:\t\t" + hashlib.md5(r.content).hexdigest()
+  print "Content:\t" + filter(lambda x: x in string.printable, r.content)
+  print "Hex:\t\t" + binascii.hexlify(r.content)
+  print ""
+  return recv(method, r.content)
 
 def recv(method, data):
   recvbuf = TTransport.TMemoryBuffer(data)
